@@ -13,16 +13,31 @@ const addNewNote = NotesApp.addNewNote;
 
 // Named functions
 function getNoteById(_id) {
-  // How can we find a note inside our notes array?
-  // This should return a single note object if found;
+  let found = {};
+  notes.forEach(function(note) {
+    if (note._id === _id) {
+      found = note;
+      return note;
+    }
+
+  });
+  return note;
+
 };
 
 const updateNote = function(_id, title, text, index) {
   // Replaces object in array with received one.
+
+  notes[index]._id = _id;
+  notes[index].title = title;
+  notes[index].text = text;
+  
 };
 
 // Declared functions
 const insertNote = function(_id, title, text) {
+  let 
+
   // This should receive the title, text and _id of a note as params 
   // and as its name says, you need to create a new note object and add it to list
 };
