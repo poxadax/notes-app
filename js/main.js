@@ -16,13 +16,13 @@ const addNewNote = NotesApp.addNewNote;
 
 // Named functions
 function getNoteById(searchId) {
-    let found = {};
-    notes.forEach(function(note) {
+    let foundIndex ;
+    notes.forEach(function(note, index) {
         if (note._id === searchId) {
-            found = note;
+            foundIndex = index;
         }
     });
-    return found;
+    return foundIndex;
 };
 
 const updateNote = function(_id, title, text, index) {
@@ -33,16 +33,22 @@ const updateNote = function(_id, title, text, index) {
 
 // Declared functions
 const insertNote = function(_id, title, text) {
-  // This should receive the title, text and _id of a note as params
-  // and as its name says, you need to create a new note object and add it to list
+  let params = {
+    _id: _id, 
+    title: title, 
+    text: text,
+  };
+  notes.push(params);
+
 };
 
 const saveNote = () => NotesApp.saveNote(function(_id, title, text) {
-  // Iterate over notes
-  // Validate if note already exists
-  // If note was found, replace values
-  // If not add it
-  // What's do you think missing?
+  let index = getNoteById(_id);
+  if (index !== undefined) {
+    updateNote(_id,title,text,index);
+  } else {
+    insertNote(_id,title,text);
+  }
 });
 
 const onClickNote = (event) => NotesApp.onClick(event, function(_id) {
