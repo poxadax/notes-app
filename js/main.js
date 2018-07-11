@@ -54,10 +54,10 @@ const saveNote = () => NotesApp.saveNote(function(_id, title, text) {
 const onClickNote = (event) => NotesApp.onClick(event, function(_id) {
   console.log('Click button Add Note 🖱');
   let note;
-  // const note;
-  // You will receive an _id of the note
-  // Construct a note object with the same structure of the list
-  // showNote function will render note in editor
+  let index = getNoteById(_id);
+  if (index !== undefined) {
+    note = notes[index];
+  }
   NotesApp.showNote(note);
 });
 
