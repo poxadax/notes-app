@@ -1,44 +1,39 @@
 // Notes list that is going to be shown in the browser
-const notes = [{
-  _id: NotesApp.createNoteId(),
-  title: 'Note title goes here!',
-  text: 'This is my very first note text! 😀',
-}, {
-  _id: NotesApp.createNoteId(),
-  title: 'Second awesome note!',
-  text: 'This is my second note text!',
-}];
+const notes = [
+    {
+      _id: NotesApp.createNoteId(),
+      title: 'Note title goes here!',
+      text: 'This is my very first note text! 😀',
+    },
+    {
+      _id: NotesApp.createNoteId(),
+      title: 'Second awesome note!',
+      text: 'This is my second note text!',
+    }
+];
 
 const addNewNote = NotesApp.addNewNote;
 
 // Named functions
-function getNoteById(_id) {
-  let found = {};
-  notes.forEach(function(note) {
-    if (note._id === _id) {
-      found = note;
-      return note;
-    }
-
-  });
-  return note;
-
+function getNoteById(searchId) {
+    let found = {};
+    notes.forEach(function(note) {
+        if (note._id === searchId) {
+            found = note;
+        }
+    });
+    return found;
 };
 
 const updateNote = function(_id, title, text, index) {
-  // Replaces object in array with received one.
-
   notes[index]._id = _id;
-  notes[index].title = title;
   notes[index].text = text;
-  
+  notes[index].title = title;
 };
 
 // Declared functions
 const insertNote = function(_id, title, text) {
-  let 
-
-  // This should receive the title, text and _id of a note as params 
+  // This should receive the title, text and _id of a note as params
   // and as its name says, you need to create a new note object and add it to list
 };
 
