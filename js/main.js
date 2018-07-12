@@ -16,7 +16,7 @@ const addNewNote = NotesApp.addNewNote;
 
 // Named functions
 function getNoteById(searchId) {
-    let found;
+    let foundIndex;
     notes.forEach(function(note, index) {
         if(note._id === searchId){
             foundIndex = index;
