@@ -64,8 +64,9 @@ const onClickNote = (event) => NotesApp.onClick(event, function(_id) {
       if(note.title === 'Write a fucking title') {
         note.title = '';
       }
+      NotesApp.showNote(note);
   }
-  NotesApp.showNote(note);
+  
 });
 
 document.addEventListener('DOMContentLoaded', function(event) {
