@@ -43,8 +43,8 @@ const insertNote = function(_id, title, text) {
 };
 
 const saveNote = () => NotesApp.saveNote(function(_id, title, text) {
-  if (title === '') {
-    title = 'Write a title'
+  if(title === '') {
+    title = 'Write a fucking title';
   }
   let index = getNoteById(_id);
   if(index !== undefined) {
