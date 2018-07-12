@@ -49,6 +49,7 @@ const saveNote = () => NotesApp.saveNote(function(_id, title, text) {
   } else {
       insertNote(_id, title, text);
   }
+  NotesApp.renderNotesList();
 });
 
 const onClickNote = (event) => NotesApp.onClick(event, function(_id) {
