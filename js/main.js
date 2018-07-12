@@ -19,7 +19,7 @@ function getNoteById(searchId) {
     let found;
     notes.forEach(function(note, index) {
         if(note._id === searchId){
-            found = index;
+            foundIndex = index;
             return;
         }
     });
@@ -43,12 +43,16 @@ const insertNote = function(_id, title, text) {
 };
 
 const saveNote = () => NotesApp.saveNote(function(_id, title, text) {
+  if (title === '') {
+    title = 'Write a title'
+  }
   let index = getNoteById(_id);
   if(index !== undefined) {
-      updateNote(_id,title,text,index);
+      updateNote(_id,title,text,index);    
   } else {
       insertNote(_id, title, text);
   }
+  NotesApp.renderNotesList();
 });
 
 const onClickNote = (event) => NotesApp.onClick(event, function(_id) {
